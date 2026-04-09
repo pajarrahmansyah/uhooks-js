@@ -1,0 +1,41 @@
+{
+    "name": "uhooks-js",
+    "version": "1.0.0",
+    "description": "A collection of useful React hooks",
+    "main": "dist/index.js",
+    "module": "dist/index.esm.js",
+    "types": "dist/index.d.ts",
+    "files": [
+        "dist"
+    ],
+    "scripts": {
+        "build": "rollup -c",
+        "dev": "rollup -c -w",
+        "prepublishOnly": "npm run build"
+    },
+    "keywords": [
+        "react",
+        "hooks",
+        "debounce",
+        "react-hooks",
+        "useDebounce"
+    ],
+    "author": "",
+    "license": "MIT",
+    "peerDependencies": {
+        "react": "^16.8.0 || ^17.0.0 || ^18.0.0"
+    },
+    "devDependencies": {
+        "@rollup/plugin-typescript": "^11.1.6",
+        "@types/react": "^18.2.48",
+        "react": "^18.2.0",
+        "rollup": "^4.9.6",
+        "rollup-plugin-dts": "^6.1.0",
+        "tslib": "^2.6.2",
+        "typescript": "^5.3.3"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/pajarrahmansyah/uhooks-js.git"
+    }
+}
