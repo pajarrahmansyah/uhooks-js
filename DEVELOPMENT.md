@@ -47,7 +47,7 @@ The example app is configured to import directly from source (`../src/index.ts`)
 3. **In your Next.js project:**
 
    ```bash
-   npm link uhooks-js
+   npm link @pajarrahmansyah/uhooks-js
    ```
 
 4. **Use in a Next.js component (remember `"use client"` for App Router):**
@@ -56,7 +56,7 @@ The example app is configured to import directly from source (`../src/index.ts`)
    "use client";
 
    import { useState } from "react";
-   import { useDebounce } from "uhooks-js";
+   import { useDebounce } from "@pajarrahmansyah/uhooks-js";
 
    export default function SearchPage() {
      const [search, setSearch] = useState("");
@@ -87,7 +87,7 @@ Components that use hooks must include the `"use client"` directive:
 ```tsx
 "use client";
 
-import { useDebounce } from "uhooks-js";
+import { useDebounce } from "@pajarrahmansyah/uhooks-js";
 import { useState, useEffect } from "react";
 
 export default function MyComponent() {
@@ -107,7 +107,7 @@ export default function MyComponent() {
 No directive needed — use hooks directly:
 
 ```tsx
-import { useDebounce } from "uhooks-js";
+import { useDebounce } from "@pajarrahmansyah/uhooks-js";
 import { useState } from "react";
 
 export default function Page() {
@@ -138,7 +138,7 @@ npm publish
 **Error: Cannot find module 'uhooks-js'**
 
 - Make sure you ran `npm link` inside the uhooks-js folder
-- Make sure you ran `npm link uhooks-js` inside your project
+- Make sure you ran `npm link @pajarrahmansyah/uhooks-js` inside your project
 
 **Hook not updating in Next.js**
 

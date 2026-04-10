@@ -5,13 +5,13 @@ A collection of useful React hooks for everyday use. Zero external dependencies,
 ## Installation
 
 ```bash
-npm install uhooks-js
+npm install @pajarrahmansyah/uhooks-js
 ```
 
 or
 
 ```bash
-yarn add uhooks-js
+yarn add @pajarrahmansyah/uhooks-js
 ```
 
 ## Hooks
@@ -38,7 +38,7 @@ yarn add uhooks-js
 Delays updating a value until after a specified delay has elapsed since the last change. Perfect for search inputs and API calls.
 
 ```tsx
-import { useDebounce } from "uhooks-js";
+import { useDebounce } from "@pajarrahmansyah/uhooks-js";
 
 function SearchComponent() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -78,7 +78,7 @@ useDebounce<T>(value: T, delay?: number): T
 Persists state in `localStorage` with JSON serialization and cross-tab synchronization. API mirrors `useState`.
 
 ```tsx
-import { useLocalStorage } from "uhooks-js";
+import { useLocalStorage } from "@pajarrahmansyah/uhooks-js";
 
 function ThemeToggle() {
   const [theme, setTheme, removeTheme] = useLocalStorage("theme", "light");
@@ -115,7 +115,7 @@ Returns `[storedValue, setValue, removeValue]`.
 Reads, writes, and deletes a browser cookie with full options support.
 
 ```tsx
-import { useCookie } from "uhooks-js";
+import { useCookie } from "@pajarrahmansyah/uhooks-js";
 
 function AuthComponent() {
   const [token, setToken, deleteToken] = useCookie("auth_token");
@@ -155,7 +155,7 @@ useCookie(name: string): [string | null, (value: string, options?: CookieOptions
 Detects whether the current device is mobile, tablet, or desktop using viewport width and user agent. Updates on resize.
 
 ```tsx
-import { useDeviceDetect } from "uhooks-js";
+import { useDeviceDetect } from "@pajarrahmansyah/uhooks-js";
 
 function Layout() {
   const { isMobile, isTablet, isDesktop, device } = useDeviceDetect();
@@ -190,7 +190,7 @@ Breakpoints: mobile `< 768px`, tablet `768–1024px`, desktop `> 1024px`.
 Manages a boolean state with a toggle function. Useful for modals, menus, and dark mode switches.
 
 ```tsx
-import { useToggle } from "uhooks-js";
+import { useToggle } from "@pajarrahmansyah/uhooks-js";
 
 function Modal() {
   const [isOpen, toggle, setOpen] = useToggle(false);
@@ -220,7 +220,7 @@ Returns `[value, toggle, setValue]`.
 Returns the value from the previous render. Returns `undefined` on the first render.
 
 ```tsx
-import { usePrevious } from "uhooks-js";
+import { usePrevious } from "@pajarrahmansyah/uhooks-js";
 
 function Counter() {
   const [count, setCount] = useState(0);
@@ -248,7 +248,7 @@ usePrevious<T>(value: T): T | undefined
 Calls a handler when the user clicks or taps outside the referenced element. Useful for dropdowns, modals, and popovers.
 
 ```tsx
-import { useClickOutside } from "uhooks-js";
+import { useClickOutside } from "@pajarrahmansyah/uhooks-js";
 
 function Dropdown() {
   const [isOpen, setIsOpen] = useState(false);
@@ -278,7 +278,7 @@ useClickOutside<T extends HTMLElement>(
 Copies text to the clipboard and tracks the last copied value. Resets after a configurable delay.
 
 ```tsx
-import { useCopyToClipboard } from "uhooks-js";
+import { useCopyToClipboard } from "@pajarrahmansyah/uhooks-js";
 
 function CopyButton({ text }: { text: string }) {
   const [copiedText, copy] = useCopyToClipboard(2000);
@@ -308,7 +308,7 @@ useCopyToClipboard(resetDelay?: number): [string | null, (text: string) => Promi
 Evaluates a CSS media query string and returns whether it currently matches. Updates live.
 
 ```tsx
-import { useMediaQuery } from "uhooks-js";
+import { useMediaQuery } from "@pajarrahmansyah/uhooks-js";
 
 function App() {
   const isMobile = useMediaQuery("(max-width: 768px)");
@@ -335,7 +335,7 @@ useMediaQuery(query: string): boolean
 Tracks the current window dimensions and updates on resize.
 
 ```tsx
-import { useWindowSize } from "uhooks-js";
+import { useWindowSize } from "@pajarrahmansyah/uhooks-js";
 
 function ResponsiveComponent() {
   const { width, height } = useWindowSize();
@@ -364,7 +364,7 @@ interface WindowSize {
 Fetches data from a URL with automatic loading/error state management and cleanup on unmount.
 
 ```tsx
-import { useFetch } from "uhooks-js";
+import { useFetch } from "@pajarrahmansyah/uhooks-js";
 
 interface User {
   id: number;
@@ -412,7 +412,7 @@ Pass `null` or `undefined` as the URL to skip fetching.
 Attaches an event listener to a target element declaratively. Cleans up automatically on unmount.
 
 ```tsx
-import { useEventListener } from "uhooks-js";
+import { useEventListener } from "@pajarrahmansyah/uhooks-js";
 
 function ScrollTracker() {
   const [scrollY, setScrollY] = useState(0);
@@ -453,7 +453,7 @@ All hooks are SSR-safe. For **Next.js 13+ (App Router)**, add `"use client"` to 
 ```tsx
 "use client";
 
-import { useLocalStorage } from "uhooks-js";
+import { useLocalStorage } from "@pajarrahmansyah/uhooks-js";
 ```
 
 For **Pages Router** (Next.js 12 and below), use hooks directly without any directive.
