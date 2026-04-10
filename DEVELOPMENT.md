@@ -2,55 +2,55 @@
 
 ## Quick Start for Testing
 
-### Method 1: Using Example Next.js App (Recommended)
+### Method 1: Using the Example Next.js App (Recommended)
 
-1. **Install dependencies untuk library:**
+1. **Install library dependencies:**
 
    ```bash
    npm install
    ```
 
-2. **Install dependencies untuk example:**
+2. **Install example app dependencies:**
 
    ```bash
    cd example
    npm install
    ```
 
-3. **Jalankan example app:**
+3. **Start the example app:**
 
    ```bash
    npm run dev
    ```
 
-4. **Buka browser:**
+4. **Open in browser:**
    ```
    http://localhost:3000
    ```
 
-Example app sudah configured untuk import langsung dari source (`../src/index.ts`), jadi setiap perubahan di hook langsung keliatan tanpa perlu rebuild!
+The example app is configured to import directly from source (`../src/index.ts`), so any changes to the hooks are reflected immediately without needing to rebuild.
 
-### Method 2: Test di Project Next.js Yang Sudah Ada
+### Method 2: Test in an Existing Next.js Project
 
-1. **Build library:**
+1. **Build the library:**
 
    ```bash
    npm run build
    ```
 
-2. **Link library secara lokal:**
+2. **Link the library locally:**
 
    ```bash
    npm link
    ```
 
-3. **Di project Next.js kamu:**
+3. **In your Next.js project:**
 
    ```bash
    npm link uhooks-js
    ```
 
-4. **Pakai di komponen Next.js (jangan lupa `"use client"`):**
+4. **Use in a Next.js component (remember `"use client"` for App Router):**
 
    ```tsx
    "use client";
@@ -68,21 +68,21 @@ Example app sudah configured untuk import langsung dari source (`../src/index.ts
    }
    ```
 
-### Method 3: Watch Mode untuk Development
+### Method 3: Watch Mode
 
-Jalankan library dalam watch mode sambil develop:
+Run the library in watch mode while developing:
 
 ```bash
 npm run dev
 ```
 
-Ini akan rebuild otomatis setiap ada perubahan di source code.
+This automatically rebuilds whenever source files change.
 
-## Cara Pakai di Next.js
+## Using with Next.js
 
 ### App Router (Next.js 13+)
 
-Komponen yang pakai hooks harus punya directive `"use client"`:
+Components that use hooks must include the `"use client"` directive:
 
 ```tsx
 "use client";
@@ -95,7 +95,6 @@ export default function MyComponent() {
   const debouncedValue = useDebounce(value, 500);
 
   useEffect(() => {
-    // Do something with debounced value
     console.log(debouncedValue);
   }, [debouncedValue]);
 
@@ -103,9 +102,9 @@ export default function MyComponent() {
 }
 ```
 
-### Pages Router (Next.js 12 dan sebelumnya)
+### Pages Router (Next.js 12 and below)
 
-Bisa langsung pakai tanpa `"use client"`:
+No directive needed — use hooks directly:
 
 ```tsx
 import { useDebounce } from "uhooks-js";
@@ -119,16 +118,15 @@ export default function Page() {
 }
 ```
 
-## Testing Workflow
+## Development Workflow
 
-1. Buat perubahan di `src/useDebounce.ts`
-2. Test di example app (auto-reload)
-3. Atau rebuild dengan `npm run build`
-4. Test di project kamu yang pakai `npm link`
+1. Make changes in `src/`
+2. Test in the example app (auto-reloads)
+3. Or rebuild with `npm run build` and test via `npm link`
 
 ## Publishing
 
-Sebelum publish ke npm:
+Before publishing to npm:
 
 ```bash
 npm run build
@@ -139,17 +137,17 @@ npm publish
 
 **Error: Cannot find module 'uhooks-js'**
 
-- Pastikan sudah run `npm link` di folder uhooks-js
-- Pastikan sudah run `npm link uhooks-js` di project kamu
+- Make sure you ran `npm link` inside the uhooks-js folder
+- Make sure you ran `npm link uhooks-js` inside your project
 
-**Hook tidak update di Next.js**
+**Hook not updating in Next.js**
 
-- Pastikan komponen punya `"use client"` directive (App Router)
-- Check console browser untuk errors
-- Restart Next.js dev server
+- Ensure the component has the `"use client"` directive (App Router)
+- Check the browser console for errors
+- Restart the Next.js dev server
 
-**Changes tidak keliatan**
+**Changes not reflected**
 
-- Restart Next.js dev server
-- Clear `.next` folder: `rm -rf .next`
-- Rebuild library: `npm run build`
+- Restart the Next.js dev server
+- Clear the `.next` folder: `rm -rf .next`
+- Rebuild the library: `npm run build`
